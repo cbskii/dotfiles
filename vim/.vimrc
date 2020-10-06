@@ -103,6 +103,8 @@ let g:ycm_clangd_binary_path = "/usr/bin/clangd-9" " `whereis clangd-9`
 " Theme settings
 set colorcolumn=100
 set background=dark
+colorscheme palenight
+let g:airline_theme='palenight'
 if (has('gui_running'))
     set vb t_vb=  "disable bell sound
     :set guioptions-=m  "remove menu bar
@@ -112,6 +114,4 @@ if (has('gui_running'))
     :set guifont=Ubuntu\ Mono\ 14
 else
     set termguicolors
-    colorscheme palenight
-    let g:airline_theme='palenight'
 endif
