@@ -1,6 +1,3 @@
-Dofiles
-
-TODO:
-- setup zsh from scratch (no oh-my-zsh) with plugins and main zshrc + computer specific zshrc (look into zsh env)
-- remove tmux or find a way to link to oh-my-tmux
-- add setup instructions, or bootstrap script to install everything
+# Prerequisites
+1. Assumes Zsh is already being used as main shell
+2. If using Mac expects homebrew to be installed
