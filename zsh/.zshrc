@@ -39,7 +39,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -82,3 +82,25 @@ alias zrc='vim ~/.zshrc'
 alias src='source ~/.zshrc'
 
 export EDITOR='vim'
+
+# Spaceship theme settings (see github page for order options)
+SPACESHIP_PROMPT_ORDER=(
+  #user          # Username section
+  #host          # Hostname section
+  # git           # Git section (git_branch + git_status)
+  #exec_time     # Execution time
+  #line_sep      # Line break
+  dir           # Current directory section
+  vi_mode       # Vi-mode indicator
+  char          # Prompt character
+)
+SPACESHIP_USER_SUFFIX=''
+SPACESHIP_HOST_PREFIX='@'
+SPACESHIP_DIR_PREFIX=''
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_COLOR='yellow'
+spaceship_vi_mode_enable
+
+# Disable history sharing
+setopt no_share_history
+unsetopt share_history
