@@ -81,13 +81,13 @@ alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias src='source ~/.zshrc'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Spaceship theme settings (see github page for order options)
 SPACESHIP_PROMPT_ORDER=(
   #user          # Username section
   #host          # Hostname section
-  # git           # Git section (git_branch + git_status)
+  #git           # Git section (git_branch + git_status)
   #exec_time     # Execution time
   #line_sep      # Line break
   dir           # Current directory section
@@ -104,3 +104,31 @@ spaceship_vi_mode_enable
 # Disable history sharing
 setopt no_share_history
 unsetopt share_history
+
+# FZF zsh support
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Functions
+function up() {
+    COUNTER="$@";
+    # if no argument is passed, assuming going up one level
+    if [[ -z $COUNTER ]]; then
+        COUNTER=1
+    fi
+
+    # accept only number for counter
+    if [ $COUNTER -eq $COUNTER 2> /dev/null ]; then
+        # set current directory as new directory
+        nwd=`pwd`
+
+        until [[ $COUNTER -lt 1 ]]; do
+            nwd=`dirname $nwd`
+            #echo $nwd
+            let COUNTER-=1
+        done
+        cd $nwd
+    else
+        echo "usage: up [NUMBER]"
+        return 1
+    fi
+}

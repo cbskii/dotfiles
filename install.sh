@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-# TODO make work on Linux and Mac (currently Mac specific)
-
 # Prerequisites
 brew install stow
 # TODO python3, ctags
@@ -12,6 +10,13 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/theme
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 rm ~/.zshrc # remove default zshrc
 stow zsh # symlink new zshrc to home directory
+
+# FZF
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+
+# Ripgrep
+brew install ripgrep
 
 # Neovim setup
 # TODO install neovim python dependencies

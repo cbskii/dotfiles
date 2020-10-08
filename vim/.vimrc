@@ -21,8 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/nvie/vim-flake8.git'
 
 " Fuzzy search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Autocompletion engine - READ INSTALLATION MANUAL IF THIS FAILS
 " Notes: This is a heavy plugin and may be best to leave if not needed. For C/C++
