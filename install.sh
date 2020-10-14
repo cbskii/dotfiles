@@ -5,6 +5,7 @@ brew install stow
 brew install python3
 python3 -m pip install --upgrade pip
 brew install git
+brew install cmake
 
 # Zsh setup with Oh My Zsh and Spaceship prompt
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
