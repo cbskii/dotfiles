@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chrisbabroski/.oh-my-zsh"
+# TODO this should be a relative path if possible, else use username of local pc
+export ZSH="/Users/chris.babroski/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -87,11 +88,11 @@ export EDITOR='nvim'
 SPACESHIP_PROMPT_ORDER=(
   #user          # Username section
   #host          # Hostname section
-  #git           # Git section (git_branch + git_status)
   #exec_time     # Execution time
   #line_sep      # Line break
   dir           # Current directory section
   vi_mode       # Vi-mode indicator
+  git           # Git section (git_branch + git_status)
   char          # Prompt character
 )
 SPACESHIP_USER_SUFFIX=''

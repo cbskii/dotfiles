@@ -3,15 +3,10 @@
 " 2. Plugin manager is vim-plug
 " 3. Assuming Vim is running on Unix/Linux
 
-" Auto install vim-plug if it doesn't exist - must define $MYVIMRC
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" TODO check for nvim vs vim and handle appropriately
 
 " Plugins will be downloaded under the specified directory.
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Display bar
 Plug 'vim-airline/vim-airline'
@@ -104,13 +99,4 @@ set colorcolumn=100
 set background=dark
 colorscheme palenight
 let g:airline_theme='palenight'
-if (has('gui_running'))
-    set vb t_vb=  "disable bell sound
-    :set guioptions-=m  "remove menu bar
-    :set guioptions-=T  "remove toolbar
-    :set guioptions-=r  "remove right-hand scroll bar
-    :set guioptions-=L  "remove left-hand scroll bar
-    :set guifont=Ubuntu\ Mono\ 14
-else
-    set termguicolors
-endif
+set termguicolors
