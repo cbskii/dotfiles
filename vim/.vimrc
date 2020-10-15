@@ -12,11 +12,15 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Python PEP8 linter
-Plug 'https://github.com/nvie/vim-flake8.git'
-
 " Fuzzy search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Python support
+Plug 'https://github.com/nvie/vim-flake8.git'
+
+" Rust support
+Plug 'rust-lang/rust.vim'
 
 " Autocompletion engine - READ INSTALLATION MANUAL IF THIS FAILS
 " Notes: This is a heavy plugin and may be best to leave if not needed. For C/C++
@@ -30,9 +34,11 @@ Plug 'https://github.com/tpope/vim-sleuth.git'
 " Nice commenting
 Plug 'https://github.com/tpope/vim-commentary.git'
 
+" Gutentags
+Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
+
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'morhetz/gruvbox'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -84,11 +90,13 @@ set number relativenumber " enable line numbers
 " FZF settings
 let g:fzf_tags_command = 'ctags -R'
 
-" airline settings
+" Airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#fzf#enabled = 1
+let g:airline#extensions#gutentags#enabled = 1
 
 " YCM settings
 let g:ycm_clangd_uses_ycmd_caching = 0 " Let clangd fully control code completion
