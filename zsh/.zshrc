@@ -132,3 +132,6 @@ function up() {
         return 1
     fi
 }
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
