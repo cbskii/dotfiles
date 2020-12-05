@@ -1,3 +1,6 @@
 # Prerequisites
 1. Assumes Zsh is already being used as main shell
 2. Expects homebrew to be installed (Linux/Mac)
+
+# TODO
+- Look into ALE and deoplete for nvim and get rid of YouCompleteMe
