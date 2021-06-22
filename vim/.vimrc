@@ -43,13 +43,18 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'
 
+" OSC52 support for copying text remotely
+Plug 'ojroques/vim-oscyank'
+
+" Git plugins
+Plug 'https://github.com/tpope/vim-fugitive.git'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " General settings
 syntax enable  " enable syntax
-set mouse=a  " make mouse work as expected
-set clipboard=unnamedplus " copy to system clipboard by default
+set mouse=n  " Enable mouse for normal mode scrolling
 set ignorecase  " ignore case when searching
 set smartcase  " ignore case when searching unless using capitals
 set hlsearch  " highlight searches
@@ -59,6 +64,8 @@ set nowrap  " disable visual line wrapping
 set t_Co=256  " ensure 256 color terminal
 set timeoutlen=1000 ttimeoutlen=0  " remove delay after pressing esc
 set textwidth=97  " Auto format text to wrap at < 100 chars
+set wrap " Automatic line wrapping
+set diffopt+=vertical " Vertical splits for diffs
 
 " Show spaces and tabs
 set list
@@ -108,7 +115,10 @@ set termguicolors
 colorscheme palenight
 let g:airline_theme='palenight'
 
-" Coc settings
+" Make normal yank also use OSC 52 for remote copy
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
+
+" --------------------------- Coc settings --------------------------------------
 " TODO get rid of unnecessary settings
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
