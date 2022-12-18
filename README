@@ -12,6 +12,6 @@ TODO new simplified system:
 Summary:
 - Native terminal application with multi tab support
 - Nvim
-- fish shell
-- font
-- command line tools like git, ripgrep, cargo, etc.
+- Fish shell and set prompt with fish_config
+- Install font
+- Command line tools like git, ripgrep, cargo, etc.
