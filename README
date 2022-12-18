@@ -1,3 +1,17 @@
 # Prerequisites
 1. Assumes Zsh is already being used as main shell
 2. Expects homebrew to be installed (Linux/Mac)
+
+TODO new simplified system:
+- Use native terminal w/ window manager (e.g. Terminal on Windows with WSL2 used by default and iTerm2 on MacOS)
+- Download and install nice font, like JetBrains Mono
+- Download and install Nvim along with ripgrep
+- Use Nvim :term as much as possible when working on a project, but can still open new tabs if needed
+- Use fish for shell
+
+Summary:
+- Native terminal application with multi tab support
+- Nvim
+- fish shell
+- font
+- command line tools like git, ripgrep, cargo, etc.
