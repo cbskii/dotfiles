@@ -7,6 +7,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Display bar
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -21,12 +22,14 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'rust-lang/rust.vim'
 
 " TOML support
+
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 " Bitbake syntax support
 Plug 'https://github.com/kergoth/vim-bitbake.git'
 
 " Auto tab/space detection & settings
+
 Plug 'https://github.com/tpope/vim-sleuth.git'
 
 " Nice commenting
@@ -38,6 +41,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 " OSC52 support for copying text remotely
 Plug 'ojroques/vim-oscyank'
 
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -45,14 +49,17 @@ call plug#end()
 syntax enable                           " Enable syntax
 set mouse=n                             " Enable mouse for normal mode scrolling
 set ignorecase                          " Ignore case when searching
+
 set smartcase                           " Ignore case when searching unless using capitals
 set hlsearch                            " Highlight searches
+
 set backspace=indent,eol,start          " Make backspace work as expected
 set nowrap                              " Disable visual line wrapping
 set timeoutlen=1000 ttimeoutlen=0       " Remove delay after pressing esc
 set textwidth=97                        " Auto format text to wrap at < 100 chars
 set wrap                                " Automatic line wrapping
 set diffopt+=vertical                   " Vertical splits for diffs
+
 
 " Show spaces and tabs
 set list
@@ -72,6 +79,7 @@ nnoremap <silent> <C-s> :Rg <C-R><C-W><CR>
 nnoremap <Tab> :b#<CR>
 noremap d <C-D>
 noremap u <C-U>
+tnoremap <esc> <C-\><C-n>
 
 " Try to make search direction consistent
 nnoremap n :/<CR>
@@ -98,6 +106,7 @@ let g:airline#extensions#gutentags#enabled = 1
 
 " Theme settings
 set colorcolumn=100
+
 set background=dark
 set termguicolors
 colorscheme palenight

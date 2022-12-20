@@ -1,17 +1,15 @@
-# Prerequisites
-1. Assumes Zsh is already being used as main shell
-2. Expects homebrew to be installed (Linux/Mac)
+Summary of simplified environmennt setup and workflow:
+- Use native terminal application with multi tab support (e.g. Windows Terminal, iTerm2, etc.)
+- Use Neovim for text editor and terminal splits inside nvim with `:term`
+- Fish for shell with defaults, but set prompt to show git status by running `fish_config`
+- Install nice font and enable in native terminal application (e.g. JetBrains Mono)
+- Install necessary command line tools like git, ripgrep, cargo, etc.
 
-TODO new simplified system:
-- Use native terminal w/ window manager (e.g. Terminal on Windows with WSL2 used by default and iTerm2 on MacOS)
-- Download and install nice font, like JetBrains Mono
-- Download and install Nvim along with ripgrep
-- Use Nvim :term as much as possible when working on a project, but can still open new tabs if needed
-- Use fish for shell
-
-Summary:
-- Native terminal application with multi tab support
-- Nvim
-- Fish shell and set prompt with fish_config
-- Install font
-- Command line tools like git, ripgrep, cargo, etc.
+To install these dotfiles:
+- Symlink dotfiles:
+```
+cd ~
+ln -s dotfiles/.config/ .
+```
+- Use package manager to install missing packages (including Vim-Plug)
+- Vim-Plug to install Neovim plugins
