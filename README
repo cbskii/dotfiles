@@ -1,15 +1,12 @@
-Summary of simplified environmennt setup and workflow:
-- Use native terminal application with multi tab support (e.g. Windows Terminal, iTerm2, etc.)
-- Use Neovim for text editor and terminal splits inside nvim with `:term`
-- Fish for shell with defaults, but set prompt to show git status by running `fish_config`
-- Install nice font and enable in native terminal application (e.g. JetBrains Mono)
-- Install necessary command line tools like git, ripgrep, cargo, etc.
+Setup:
+1. Manually install packages listed below.
+2. Use GNU stow to create dotfile symlinks for each subdirectory in this repo (e.g. `stow nvim`).
 
-To install these dotfiles:
-- Symlink dotfiles:
-```
-cd ~
-ln -s dotfiles/.config/ .
-```
-- Use package manager to install missing packages (including Vim-Plug)
-- Vim-Plug to install Neovim plugins
+Minimum packages to install:
+1. GNU Stow
+2. Zsh
+3. Zsh Spaceship prompt and required fonts
+4. Ripgrep
+5. FZF
+6. Neovim
+7. Vim-Plug

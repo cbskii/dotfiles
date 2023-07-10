@@ -7,7 +7,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Display bar
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -22,14 +21,12 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'rust-lang/rust.vim'
 
 " TOML support
-
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 " Bitbake syntax support
 Plug 'https://github.com/kergoth/vim-bitbake.git'
 
 " Auto tab/space detection & settings
-
 Plug 'https://github.com/tpope/vim-sleuth.git'
 
 " Nice commenting
