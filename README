@@ -1,6 +1,7 @@
 Setup:
 1. Manually install packages listed below.
 2. Use GNU stow to create dotfile symlinks for each subdirectory in this repo (e.g. `stow nvim`).
+3. Open nvim and run :PlugInstall to install plugins
 
 Minimum packages to install:
 1. GNU Stow
