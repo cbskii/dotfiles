@@ -5,7 +5,7 @@ Setup:
 Minimum packages to install:
 1. GNU Stow
 2. Zsh
-3. Zsh Spaceship prompt and required fonts
+3. Zsh Spaceship prompt and required fonts (enable in local .zshrc)
 4. Ripgrep
 5. FZF
 6. Neovim

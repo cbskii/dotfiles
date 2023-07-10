@@ -1,0 +1,12 @@
+SPACESHIP_PROMPT_ORDER=(
+    git
+    line_sep
+    dir
+    char
+)
+SPACESHIP_USER_SUFFIX=''
+SPACESHIP_HOST_PREFIX='@'
+SPACESHIP_DIR_PREFIX=''
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_COLOR='yellow'
+spaceship_vi_mode_enable

@@ -1,8 +1,3 @@
-" General notes:
-" 1. Use Neovim instead of Vim, this vimrc doesn't really support vim currently
-" 2. Plugin manager is vim-plug
-" 3. Assuming Vim is running on Unix/Linux
-
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -38,7 +33,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 " OSC52 support for copying text remotely
 Plug 'ojroques/vim-oscyank'
 
-
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -56,7 +50,6 @@ set timeoutlen=1000 ttimeoutlen=0       " Remove delay after pressing esc
 set textwidth=97                        " Auto format text to wrap at < 100 chars
 set wrap                                " Automatic line wrapping
 set diffopt+=vertical                   " Vertical splits for diffs
-
 
 " Show spaces and tabs
 set list
@@ -103,7 +96,6 @@ let g:airline#extensions#gutentags#enabled = 1
 
 " Theme settings
 set colorcolumn=100
-
 set background=dark
 set termguicolors
 colorscheme palenight
