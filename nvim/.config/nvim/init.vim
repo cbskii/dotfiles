@@ -1,49 +1,51 @@
-" Plugins will be downloaded under the specified directory.
-call plug#begin(stdpath('data') . '/plugged')
+" Don't run Vim-Plug if on NixOS or using another plugin manager
+if ! empty(globpath(&rtp, 'autoload/plug.vim'))
+  " Plugins will be downloaded under the specified directory.
+  call plug#begin(stdpath('data') . '/plugged')
 
-" Display bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  " Display bar
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-" Fuzzy search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+  " Fuzzy search
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
-" C/C++ support
-Plug 'bfrg/vim-cpp-modern'
+  " C/C++ support
+  Plug 'bfrg/vim-cpp-modern'
 
-" Rust support
-Plug 'rust-lang/rust.vim'
+  " Rust support
+  Plug 'rust-lang/rust.vim'
 
-" TOML support
-Plug 'cespare/vim-toml', { 'branch': 'main' }
+  " TOML support
+  Plug 'cespare/vim-toml', { 'branch': 'main' }
 
-" Bitbake syntax support
-Plug 'https://github.com/kergoth/vim-bitbake.git'
+  " Bitbake syntax support
+  Plug 'https://github.com/kergoth/vim-bitbake.git'
 
-" Auto tab/space detection & settings
-Plug 'https://github.com/tpope/vim-sleuth.git'
+  " Auto tab/space detection & settings
+  Plug 'https://github.com/tpope/vim-sleuth.git'
 
-" Nice commenting
-Plug 'https://github.com/tpope/vim-commentary.git'
+  " Nice commenting
+  Plug 'https://github.com/tpope/vim-commentary.git'
 
-" Themes
-Plug 'drewtempelmeyer/palenight.vim'
+  " Themes
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
-" OSC52 support for copying text remotely
-Plug 'ojroques/vim-oscyank'
+  " OSC52 support for copying text remotely
+  Plug 'ojroques/vim-oscyank'
 
-" List ends here. Plugins become visible to Vim after this call.
-call plug#end()
+  " List ends here. Plugins become visible to Vim after this call.
+  call plug#end()
+endif
 
 " General settings
 syntax enable                           " Enable syntax
 set mouse=n                             " Enable mouse for normal mode scrolling
 set ignorecase                          " Ignore case when searching
-
 set smartcase                           " Ignore case when searching unless using capitals
 set hlsearch                            " Highlight searches
-
 set backspace=indent,eol,start          " Make backspace work as expected
 set nowrap                              " Disable visual line wrapping
 set timeoutlen=1000 ttimeoutlen=0       " Remove delay after pressing esc
@@ -98,8 +100,8 @@ let g:airline#extensions#gutentags#enabled = 1
 set colorcolumn=100
 set background=dark
 set termguicolors
-colorscheme palenight
-let g:airline_theme='palenight'
+colorscheme catppuccin
+let g:airline_theme='catppuccin'
 
 " Make normal yank also use OSC 52 for remote copy
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif

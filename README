@@ -1,13 +1,24 @@
 Setup:
-1. Manually install packages listed below.
-2. Use GNU stow to create dotfile symlinks for each subdirectory in this repo (e.g. `stow nvim`).
-3. Open nvim and run :PlugInstall to install plugins
+1. Install dependencies listed below.
+2. Clone this repo to home directory.
+3. Use GNU stow to create dotfile symlinks (e.g. `cd ~/dotfiles && stow .`).
+4. Install nvim plugins with `:PlugInstall` if needed.
 
-Minimum packages to install:
-1. GNU Stow
-2. Zsh
-3. Zsh Spaceship prompt and required fonts (enable in local .zshrc)
-4. Ripgrep
-5. FZF
-6. Neovim
-7. Vim-Plug
+Dependencies:
+- Git
+- GNU Stow
+- Bash
+- Starship
+- Ripgrep
+- FZF
+- Neovim
+- Vim-Plug
+- Alacritty
+- Curl
+- Rofi (Linux)
+- JetBrains Mono font
+- Font Awesome fonts
+
+Themes:
+- Catppuccin
+- Palenight
