@@ -1,7 +1,7 @@
 Setup:
 1. Install dependencies listed below.
 2. Clone this repo to home directory.
-3. Use GNU stow to create dotfile symlinks (e.g. `cd ~/dotfiles && stow .`).
+3. Use GNU stow to create dotfile symlinks (e.g. `cd ~/dotfiles && stow nvim`).
 4. Install nvim plugins with `:PlugInstall` if needed.
 
 Dependencies:
