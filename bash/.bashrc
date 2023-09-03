@@ -12,5 +12,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+# Make FZF search hidden files
+export FZF_DEFAULT_COMMAND='find . -printf "%P\\n"'
+
 # Keep at end of file
 eval "$(starship init bash)"

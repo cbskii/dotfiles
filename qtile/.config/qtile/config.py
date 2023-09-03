@@ -8,7 +8,7 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
-groups = [Group(i) for i in [ "  ", "  ", "  ", "  ", "  " ]]
+groups = [Group(i) for i in [ "  ", "  ", "  ", "  ", "  " ]]
 catppuccin = {
     "rosewater": "#f5e0dc",
     "flamingo": "#f2cdcd",
@@ -51,6 +51,10 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+
+    # Change window size
+    Key([mod, "control"], "h", lazy.layout.grow_left()),
+    Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key([mod], "n", lazy.layout.normalize()),
 
     # Toggle window focus
@@ -131,11 +135,10 @@ screens = [
                     background = background_color
                 ),
                 widget.GroupBox(
-                    active = foreground_color,
+                    active = catppuccin["peach"],
                     inactive = foreground_color,
-                    this_current_screen_border = catppuccin["base"],
+                    this_current_screen_border = catppuccin["surface0"],
                     highlight_method = "block",
-                    fontshadow = catppuccin["blue"],
                     background = background_color,
                     disable_drag = True
                 ),
