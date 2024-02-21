@@ -7,17 +7,17 @@ Setup:
 Dependencies:
 - Git
 - GNU Stow
+- Tmux
 - Bash
 - Starship
 - Ripgrep
 - FZF
 - Neovim
 - Vim-Plug
-- Alacritty
+- Alacritty (optional)
 - Curl
 - Rofi (Linux)
-- JetBrains Mono font
-- Font Awesome fonts
+- JetBrains Mono NL font
 
 Themes:
 - Catppuccin
