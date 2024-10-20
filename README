@@ -6,17 +6,16 @@ Setup:
 
 Dependencies:
 - Git
+- Curl
 - GNU Stow
 - Tmux
-- Bash
+- Bash / Zsh
 - Starship
 - Ripgrep
 - FZF
 - Neovim
 - Vim-Plug
-- Alacritty (optional)
-- Curl
-- Rofi (Linux)
+- Alacritty / iTerm2
 - JetBrains Mono NL font
 
 Themes:

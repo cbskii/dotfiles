@@ -16,6 +16,7 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
 
   " Rust support
   Plug 'rust-lang/rust.vim'
+  Plug 'https://github.com/neovim/nvim-lspconfig.git'
 
   " TOML support
   Plug 'cespare/vim-toml', { 'branch': 'main' }
@@ -100,6 +101,13 @@ let g:airline#extensions#gutentags#enabled = 1
 set colorcolumn=100
 set background=dark
 set termguicolors
+lua << EOF
+require("catppuccin").setup({
+  no_italic = true,
+  no_bold = true,
+  no_underline = true,
+})
+EOF
 colorscheme catppuccin
 let g:airline_theme='catppuccin'
 
@@ -111,3 +119,6 @@ augroup c_inc_ft
   au!
   autocmd BufNewFile,BufRead *.c.inc   set syntax=c
 augroup END
+
+" LSP settings
+lua require'lspconfig'.rust_analyzer.setup({})
