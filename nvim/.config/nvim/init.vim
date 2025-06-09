@@ -11,12 +11,17 @@ if ! empty(globpath(&rtp, 'autoload/plug.vim'))
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " Nvim LSP
+  Plug 'neovim/nvim-lspconfig' " https://github.com/neovim/nvim-lspconfig
+
   " C/C++ support
   Plug 'bfrg/vim-cpp-modern'
 
   " Rust support
   Plug 'rust-lang/rust.vim'
-  Plug 'https://github.com/neovim/nvim-lspconfig.git'
+
+  " Zig support
+  Plug 'ziglang/zig.vim'       " https://github.com/ziglang/zig.vim
 
   " TOML support
   Plug 'cespare/vim-toml', { 'branch': 'main' }
@@ -120,5 +125,35 @@ augroup c_inc_ft
   autocmd BufNewFile,BufRead *.c.inc   set syntax=c
 augroup END
 
-" LSP settings
-lua require'lspconfig'.rust_analyzer.setup({})
+" Rust LSP settings
+" lua require'lspconfig'.rust_analyzer.setup({})
+
+" Zig LSP config
+" disable format-on-save from `ziglang/zig.vim`
+let g:zig_fmt_autosave = 1
+" don't show parse errors in a separate window
+let g:zig_fmt_parse_errors = 1
+
+:lua << EOF
+  -- enable format-on-save from nvim-lspconfig + ZLS
+  --
+  -- ZLS uses `zig fmt` as the formatter.
+  -- The Zig FAQ answers some questions about `zig fmt`:
+  -- https://github.com/ziglang/zig/wiki/FAQ
+  vim.cmd [[autocmd BufWritePre *.zig lua vim.lsp.buf.format()]]
+
+  local lspconfig = require('lspconfig')
+  lspconfig.zls.setup {
+    -- Server-specific settings. See `:help lspconfig-setup`
+    -- There are two ways to set config options:
+    --   - edit your `zls.json` that applies to any editor that uses ZLS
+    --   - set in-editor config options with the `settings` field below.
+    --
+    -- Further information on how to configure ZLS:
+    -- https://github.com/zigtools/zls/wiki/Configuration
+    settings = {
+      zls = {
+      }
+    }
+  }
+EOF

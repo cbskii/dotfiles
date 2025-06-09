@@ -17,6 +17,7 @@ Dependencies:
 - Vim-Plug
 - Alacritty / iTerm2
 - JetBrains Mono NL font
+- Zig + ZLS
 
 Themes:
 - Catppuccin
