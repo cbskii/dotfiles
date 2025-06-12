@@ -16,11 +16,24 @@ vim.opt.listchars = {
 
 -- Diagnostic popup
 vim.diagnostic.config({
+  virtual_text = false,     -- Show inline error messages
+  signs = true,             -- Show signs (E, W, etc.) in the sign column
+  underline = false,        -- Underline problematic code
+  update_in_insert = false, -- Only update diagnostics outside of insert mode
+  severity_sort = true,     -- Sort diagnostics by severity
   float = {
     border = "rounded",
     source = "always",
   },
-  update_in_insert = true,
+})
+
+-- Show diagnostic float automatically when hovering cursor over line.
+-- Based on updatetime in ms.
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
 })
 
 -- Always show sign column
@@ -43,3 +56,11 @@ require("catppuccin").setup({
 })
 
 vim.cmd.colorscheme("catppuccin")
+
+-- Disable LSP semantic highlighting for now to avoid greyed out #ifdef blocks
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+});

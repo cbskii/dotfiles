@@ -16,7 +16,6 @@ vim.keymap.set("n", "<Tab>", ":b#<CR>", { silent = true })
 vim.keymap.set("n", "d", "<C-D>", { silent = true })
 vim.keymap.set("n", "u", "<C-U>", { silent = true })
 vim.keymap.set("t", "<Esc>", "<C-c>", { silent = true })
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 
  -- Clear search highlight
 vim.keymap.set("n", "<Esc><Esc>", ":silent! nohls<CR>", { silent = true })

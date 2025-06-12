@@ -4,6 +4,7 @@
 -- fzf
 -- compiledb (through pip to create compile_commands.json as needed for C/C++ LSP server)
 -- clangd (C/C++ LSP server)
+-- zls (zig LSP server)
 
 -- Plugin management using vim-plug (vim script)
 vim.cmd([[

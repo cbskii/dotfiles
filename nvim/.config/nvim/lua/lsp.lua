@@ -1,5 +1,29 @@
--- LSP server settings. Currently using default nvim-lspconfig settings.
-vim.lsp.enable('clangd')
+-- LSP settings. Using nvim-lspconfig with nvim-cmp.
+-- Repeat for each lsp server that is enabled.
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- Runs when LSP server attaches to a filetype.
+-- Autoformat when saving.
+local on_attach = function(client, bufnr)
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ async = false })
+      end,
+    })
+  end
+end
+
+lspconfig.clangd.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.zls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- Autocomplete using LSP
 local cmp = require'cmp'
@@ -29,7 +53,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {"i","s","c",}),
+    end, {"i","s"}),
   }),
 
   sources = cmp.config.sources({
@@ -38,9 +62,3 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
-
--- Set up lspconfig. Repeat for each lsp server that is enabled.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('lspconfig')['clangd'].setup {
-  capabilities = capabilities
-}
