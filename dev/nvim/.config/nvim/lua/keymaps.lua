@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>t', function()
   vim.schedule(function()
     local name = vim.fn.input('Terminal name: ')
     if name ~= '' then
-      vim.cmd('file ' .. name)
+      vim.cmd('file ' .. name .. ' (term)')
     end
   end)
 end, { noremap = true, silent = true })

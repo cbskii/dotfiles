@@ -1,7 +1,7 @@
 ## Setup
 1. Install dependencies listed below.
 2. Clone this repo to home directory. Make sure ~/.config directory exists.
-3. Install dotfiles for a specific application using stow (e.g. `stow nvim`). Uninstall with `stow -D`.
+3. Install dotfiles for a specific application using stow (e.g. `stow nvim`).
 4. Install nvim plugins with `:PlugInstall` nvim command.
 
 ## Basic Dev Environment Dependencies (dev)
@@ -12,14 +12,17 @@
 - Starship
 - Ripgrep
 - FZF
-- Neovim
+- Neovim (0.11+)
 - Vim-Plug
-- Wezterm
-- JetBrains Mono NL font
+- clangd
+- ZLS
 
 ## Arch Linux Dependencies (archlinux)
 TODO: see HyDE configs
 
-## Favorite Color Themes
+## Color Themes
 - Catppuccin
 - Palenight
+
+## Patched Nerd Fonts
+- RobotoMono

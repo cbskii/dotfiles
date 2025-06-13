@@ -59,40 +59,6 @@ require('lualine').setup {
   },
 }
 
--- Custom sidebar terminals section
-local renamed_terminals = {}
-
-vim.api.nvim_create_autocmd("BufFilePost", {
-  pattern = "*",
-  callback = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    if vim.bo[bufnr].buftype == "terminal" and vim.api.nvim_buf_get_name(bufnr) ~= "" then
-      renamed_terminals[bufnr] = vim.api.nvim_buf_get_name(bufnr)
-    end
-  end
-})
-
-local function get_renamed_terminals()
-  local lines = {}
-  for bufnr, name in pairs(renamed_terminals) do
-    local shortname = vim.fn.fnamemodify(name, ":t")
-    table.insert(lines, shortname)
-  end
-  return lines
-end
-
-local terms = {
-  title = "Terminals",
-  icon = "",
-  draw = function(ctx)
-    local lines = get_renamed_terminals()
-    if #lines == 0 then
-      return { "No renamed terminals" }
-    end
-    return lines
-  end,
-}
-
 -- Sidebar config
 require("sidebar-nvim").setup({
   buffers = {
@@ -104,8 +70,7 @@ require("sidebar-nvim").setup({
     ignore_terminal = true,
   },
   open = true,
-  -- sections = {terms, 'git', 'buffers'},
-  sections = {'git', 'buffers'},
+  sections = {'buffers', 'git'},
   update_interval = 100,
   hide_statusline = false, -- buggy
 })
