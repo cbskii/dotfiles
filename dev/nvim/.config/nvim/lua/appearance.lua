@@ -43,7 +43,7 @@ vim.o.signcolumn = "yes"
 require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
+    lualine_b = {'branch', 'diff'},
     lualine_c = {'filename'},
     lualine_x = {},
     lualine_y = {'progress'},
@@ -70,7 +70,7 @@ require("sidebar-nvim").setup({
     ignore_terminal = true,
   },
   open = true,
-  sections = {'buffers', 'git'},
+  sections = {'buffers'},
   update_interval = 100,
   hide_statusline = false, -- buggy
 })

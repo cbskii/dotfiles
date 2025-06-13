@@ -15,7 +15,10 @@ vim.keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>", { silent = true })
 vim.keymap.set("n", "<Tab>", ":b#<CR>", { silent = true })
 vim.keymap.set("n", "d", "<C-D>", { silent = true })
 vim.keymap.set("n", "u", "<C-U>", { silent = true })
+
+-- One ESC to exit insert mode in terminal, two to close window
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>:bd!<CR>]], { silent = true })
 
 -- Open a new terminal and set the buffer name
 vim.keymap.set('n', '<leader>t', function()
