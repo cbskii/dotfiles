@@ -41,3 +41,24 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+-- HBAC settings
+require("hbac").setup({
+  autoclose     = true,
+  threshold     = 10,
+  close_command = function(bufnr)
+    vim.api.nvim_buf_delete(bufnr, {})
+  end,
+  close_buffers_with_windows = false,
+})
+
+-- Better terminal names
+-- require("termnames").setup({
+--   -- Add DirChanges to this if needed. When creating and updating the teminal info,
+--     -- termnames tries to set the current buffer as the one before a terminal was
+--     -- opened. However, this may cause issues where the previous buffer was deleted by say, a session manager.
+--     update_term_bufnr_events = {"SessionLoadPost"},
+
+--     -- Termnames sets this key combination to run TermClose for every terminal buffer it creates
+--     close_term_keybinding = "<leader>q",
+-- })

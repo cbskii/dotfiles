@@ -39,14 +39,76 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 -- Always show sign column
 vim.o.signcolumn = "yes"
 
--- Airline settings
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g["airline#extensions#tabline#buffer_nr_show"] = 1
-vim.g["airline#extensions#tabline#formatter"] = "unique_tail"
-vim.g.airline_powerline_fonts = 1
-vim.g["airline#extensions#fzf#enabled"] = 1
-vim.g["airline#extensions#gutentags#enabled"] = 1
-vim.g.airline_theme = "catppuccin"
+-- Status bar settings
+require('lualine').setup {
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {'progress'},
+    lualine_z = {},
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+}
+
+-- Custom sidebar terminals section
+local renamed_terminals = {}
+
+vim.api.nvim_create_autocmd("BufFilePost", {
+  pattern = "*",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    if vim.bo[bufnr].buftype == "terminal" and vim.api.nvim_buf_get_name(bufnr) ~= "" then
+      renamed_terminals[bufnr] = vim.api.nvim_buf_get_name(bufnr)
+    end
+  end
+})
+
+local function get_renamed_terminals()
+  local lines = {}
+  for bufnr, name in pairs(renamed_terminals) do
+    local shortname = vim.fn.fnamemodify(name, ":t")
+    table.insert(lines, shortname)
+  end
+  return lines
+end
+
+local terms = {
+  title = "Terminals",
+  icon = "",
+  draw = function(ctx)
+    local lines = get_renamed_terminals()
+    if #lines == 0 then
+      return { "No renamed terminals" }
+    end
+    return lines
+  end,
+}
+
+-- Sidebar config
+require("sidebar-nvim").setup({
+  buffers = {
+    icon = "",
+    ignored_buffers = {},
+    sorting = "id",
+    show_numbers = true,
+    ignore_not_loaded = false,
+    ignore_terminal = true,
+  },
+  open = true,
+  -- sections = {terms, 'git', 'buffers'},
+  sections = {'git', 'buffers'},
+  update_interval = 100,
+  hide_statusline = false, -- buggy
+})
 
 -- Theme settings
 require("catppuccin").setup({

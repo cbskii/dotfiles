@@ -1,18 +1,12 @@
--- REQUIREMENTS:
--- nvim v0.11+ (native LSP support)
--- ripgrep
--- fzf
--- compiledb (through pip to create compile_commands.json as needed for C/C++ LSP server)
--- clangd (C/C++ LSP server)
--- zls (zig LSP server)
-
 -- Plugin management using vim-plug (vim script)
 vim.cmd([[
   call plug#begin(stdpath('data') . '/plugged')
 
-  " Display bar
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  " Plugin Utility
+  Plug 'nvim-lua/plenary.nvim'
+
+  " Status bar
+  Plug 'nvim-lualine/lualine.nvim'
 
   " Fuzzy search
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -46,6 +40,12 @@ vim.cmd([[
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+
+  " Autoclose unused buffers
+  Plug 'axkirillov/hbac.nvim'
+
+  " Sidebar
+  Plug 'sidebar-nvim/sidebar.nvim'
 
   call plug#end()
 ]])
