@@ -4,7 +4,7 @@ if [ -e $HOME/.bashrc-extra ]; then
 fi
 
 # Aliases
-alias ls='ls -AlghGX --color'
+alias ls='ls -AlghG --color'
 
 # Catppuccin FZF colors
 export FZF_DEFAULT_OPTS=" \

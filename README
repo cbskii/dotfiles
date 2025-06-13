@@ -1,8 +1,8 @@
 Setup
 -----
 1. Install dependencies listed below.
-2. Clone this repo to home directory.
-3. Install dotfiles with `stow .` inside dev or archlinux directory. Uninstall with `stow -D .`.
+2. Clone this repo to home directory. Make sure ~/.config directory exists.
+3. Install dotfiles for a specific application using stow (e.g. `stow nvim`). Uninstall with `stow -D`.
 4. Install nvim plugins with `:PlugInstall` nvim command.
 
 Basic Dev Environment Dependencies (dev)
@@ -11,7 +11,7 @@ Basic Dev Environment Dependencies (dev)
 - Curl
 - GNU Stow
 - Tmux
-- Bash
+- Fish
 - Starship
 - Ripgrep
 - FZF
