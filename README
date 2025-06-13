@@ -1,24 +1,32 @@
-Setup:
+Setup
+-----
 1. Install dependencies listed below.
 2. Clone this repo to home directory.
-3. Use GNU stow to create dotfile symlinks as needed (e.g. `cd ~/dotfiles && stow nvim`)
-4. Install nvim plugins with `:PlugInstall` nvim command if needed.
+3. Install dotfiles with `stow .` inside dev or archlinux directory. Uninstall with `stow -D .`.
+4. Install nvim plugins with `:PlugInstall` nvim command.
 
-Dependencies:
+Basic Dev Environment Dependencies (dev)
+----------------------------------------
 - Git
 - Curl
 - GNU Stow
 - Tmux
-- Bash / Zsh
+- Bash
 - Starship
 - Ripgrep
 - FZF
 - Neovim
 - Vim-Plug
-- Alacritty / iTerm2
+- Wezterm
 - JetBrains Mono NL font
+- Clangd
 - Zig + ZLS
 
-Themes:
+Arch Linux Dependencies (archlinux)
+-----------------------------------
+TODO: see HyDE configs
+
+Favorite Color Themes
+---------------------
 - Catppuccin
 - Palenight
