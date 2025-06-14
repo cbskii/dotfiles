@@ -23,6 +23,7 @@ TODO: see HyDE configs
 ## Color Themes
 - Catppuccin
 - Palenight
+- Tokyonight
 
 ## Patched Nerd Fonts
 - RobotoMono
