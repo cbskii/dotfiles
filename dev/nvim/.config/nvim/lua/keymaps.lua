@@ -15,16 +15,14 @@ vim.keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>", { silent = true })
 vim.keymap.set("n", "<Tab>", ":b#<CR>", { silent = true })
 vim.keymap.set("n", "d", "<C-D>", { silent = true })
 vim.keymap.set("n", "u", "<C-U>", { silent = true })
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
 vim.keymap.set("n", "<leader>b", ":SidebarNvimToggle<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true })
-vim.keymap.set("n", "<leader>s", ":split<CR>", { silent = true })
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", ":vsplit<CR>", { silent = true })
 
 -- Open a new terminal and set the buffer name
 vim.keymap.set('n', '<leader>t', function()
   vim.cmd('terminal')
-  -- Wait for terminal to open, then rename
   vim.schedule(function()
     local name = vim.fn.input('Terminal name: ')
     if name ~= '' then
@@ -35,6 +33,7 @@ end, { noremap = true, silent = true })
 
  -- Clear search highlight
 vim.keymap.set("n", "<Esc><Esc>", ":silent! nohls<CR>", { silent = true })
+vim.keymap.set("n", "<leader>c", ":silent! nohls<CR>", { silent = true })
 
 -- Consistent search direction
 vim.keymap.set("n", "n", ":/<CR>", { silent = true })
@@ -60,3 +59,7 @@ vim.keymap.set('n', 'b', jump_backward, { silent = true })
 
 -- Leap movement
 require('leap').set_default_mappings()
+
+-- Escape keymap settings
+require("better_escape").setup {
+}

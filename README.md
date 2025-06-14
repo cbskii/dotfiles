@@ -1,6 +1,6 @@
 ## Setup
 1. Install dependencies listed below.
-2. Clone this repo to home directory. Make sure ~/.config directory exists.
+2. Clone this repo to home directory. Make sure `~/.config` directory exists.
 3. Install dotfiles for a specific application using stow (e.g. `stow nvim`).
 4. Install nvim plugins with `:PlugInstall` nvim command.
 
@@ -9,6 +9,7 @@
 - Curl
 - GNU Stow
 - Bash
+- Patched Powerline Fonts
 - Starship
 - Ripgrep
 - FZF
@@ -17,13 +18,11 @@
 - clangd
 - ZLS
 
-## Arch Linux Dependencies (archlinux)
-TODO: see HyDE configs
+## MacOS Dependencies (macos)
+- Aerospace WM
+- SketchyBar
 
 ## Color Themes
 - Catppuccin
 - Palenight
 - Tokyonight
-
-## Patched Nerd Fonts
-- RobotoMono

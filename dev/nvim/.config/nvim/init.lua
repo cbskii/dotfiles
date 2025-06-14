@@ -50,6 +50,9 @@ vim.cmd([[
   " Open files in neovim terminal
   Plug 'willothy/flatten.nvim'
 
+  " Escape remaped to 'jk' without delay
+  Plug 'max397574/better-escape.nvim'
+
   call plug#end()
 ]])
 

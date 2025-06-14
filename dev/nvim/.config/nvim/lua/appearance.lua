@@ -41,13 +41,19 @@ vim.o.signcolumn = "yes"
 
 -- Status bar settings
 require('lualine').setup {
+  options = {
+    theme = 'auto',
+    component_separators = '|',
+    section_separators = { left = '', right = '' },
+    disabled_filetypes = {'SidebarNvim'},
+  },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = { { 'mode', separator = { left = '', right = '' }, right_padding = 2 } },
     lualine_b = {'branch', 'diff'},
     lualine_c = {'filename'},
     lualine_x = {},
-    lualine_y = {'progress'},
-    lualine_z = {},
+    lualine_y = {},
+    lualine_z = { { 'progress', separator = { left = '', right = '' }, left_padding = 2 } },
   },
   inactive_sections = {
     lualine_a = {},
@@ -60,6 +66,14 @@ require('lualine').setup {
 }
 
 -- Sidebar config
+local cwd = {
+  title = "Working Directory",
+  icon = "",
+  draw = function()
+    return vim.fn.getcwd()
+  end,
+}
+
 require("sidebar-nvim").setup({
   buffers = {
     icon = "",
@@ -70,9 +84,9 @@ require("sidebar-nvim").setup({
     ignore_terminal = true,
   },
   open = true,
-  sections = {'buffers', 'git', 'files'},
+  sections = {cwd, 'buffers', 'git'},
   update_interval = 100,
-  hide_statusline = false, -- buggy
+  hide_statusline = false,
 })
 
 -- Theme settings
