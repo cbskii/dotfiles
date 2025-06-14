@@ -25,7 +25,7 @@ vim.g.fzf_tags_command = "ctags -R"
 -- Treesitter settings
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names that must always be installed
-  ensure_installed = { "c", "cpp", "rust", "zig", "lua", "vim", "vimdoc" },
+  ensure_installed = { "comment", "c", "cpp", "rust", "zig", "lua", "vim", "vimdoc" },
 
   highlight = {
     enable = true,
@@ -52,13 +52,32 @@ require("hbac").setup({
   close_buffers_with_windows = false,
 })
 
--- Better terminal names
--- require("termnames").setup({
---   -- Add DirChanges to this if needed. When creating and updating the teminal info,
---     -- termnames tries to set the current buffer as the one before a terminal was
---     -- opened. However, this may cause issues where the previous buffer was deleted by say, a session manager.
---     update_term_bufnr_events = {"SessionLoadPost"},
-
---     -- Termnames sets this key combination to run TermClose for every terminal buffer it creates
---     close_term_keybinding = "<leader>q",
--- })
+-- Flatten settings
+require("flatten").setup({
+  window = {
+    open = "alternate",
+  },
+  hooks = {
+    post_open = function(bufnr, winnr, ft, is_blocking)
+      -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
+      if ft == "gitcommit" or ft == "gitrebase" then
+        vim.api.nvim_create_autocmd("BufWritePost", {
+          buffer = bufnr,
+          once = true,
+          callback = vim.schedule_wrap(function()
+            vim.api.nvim_buf_delete(bufnr, {})
+          end),
+        })
+      end
+    end,
+    block_end = function()
+      -- After blocking ends (for a git commit, etc), reopen the terminal
+      vim.schedule(function()
+        if saved_terminal then
+          saved_terminal:open()
+          saved_terminal = nil
+        end
+      end)
+    end,
+  }
+})

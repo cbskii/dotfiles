@@ -47,6 +47,9 @@ vim.cmd([[
   " Sidebar
   Plug 'sidebar-nvim/sidebar.nvim'
 
+  " Open files in neovim terminal
+  Plug 'willothy/flatten.nvim'
+
   call plug#end()
 ]])
 

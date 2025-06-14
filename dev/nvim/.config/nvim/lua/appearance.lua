@@ -70,7 +70,7 @@ require("sidebar-nvim").setup({
     ignore_terminal = true,
   },
   open = true,
-  sections = {'buffers'},
+  sections = {'buffers', 'git', 'files'},
   update_interval = 100,
   hide_statusline = false, -- buggy
 })

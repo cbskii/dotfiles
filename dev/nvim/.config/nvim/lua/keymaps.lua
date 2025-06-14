@@ -15,10 +15,21 @@ vim.keymap.set("n", "<C-s>", ":Rg <C-R><C-W><CR>", { silent = true })
 vim.keymap.set("n", "<Tab>", ":b#<CR>", { silent = true })
 vim.keymap.set("n", "d", "<C-D>", { silent = true })
 vim.keymap.set("n", "u", "<C-U>", { silent = true })
-
--- One ESC to exit insert mode in terminal, two to close window
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
-vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>:bd!<CR>]], { silent = true })
+vim.keymap.set("n", "<leader>b", ":SidebarNvimToggle<CR>", { silent = true })
+
+-- Automatically split panes to a max of 4 at one time.
+-- Note that the count assumes sidebar is mainly open.
+vim.keymap.set('n', '<leader>s', function()
+    local win_count = vim.fn.winnr('$')
+    if win_count < 3 then
+        vim.cmd('vsplit')
+    elseif win_count < 5 then
+        vim.cmd('split')
+    else
+        print("Maximum of 4 panes reached.")
+    end
+end)
 
 -- Open a new terminal and set the buffer name
 vim.keymap.set('n', '<leader>t', function()
