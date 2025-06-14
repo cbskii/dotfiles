@@ -55,29 +55,6 @@ require("hbac").setup({
 -- Flatten settings
 require("flatten").setup({
   window = {
-    open = "alternate",
+    open = "vsplit",
   },
-  hooks = {
-    post_open = function(bufnr, winnr, ft, is_blocking)
-      -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
-      if ft == "gitcommit" or ft == "gitrebase" then
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          buffer = bufnr,
-          once = true,
-          callback = vim.schedule_wrap(function()
-            vim.api.nvim_buf_delete(bufnr, {})
-          end),
-        })
-      end
-    end,
-    block_end = function()
-      -- After blocking ends (for a git commit, etc), reopen the terminal
-      vim.schedule(function()
-        if saved_terminal then
-          saved_terminal:open()
-          saved_terminal = nil
-        end
-      end)
-    end,
-  }
 })
