@@ -2,7 +2,7 @@ function fish_prompt --description 'Write out the prompt'
         set -l last_status $status
         set -l normal (set_color normal)
         set -l status_color (set_color cyan)
-        set -l cwd_color (set_color $fish_color_cwd --bold)
+        set -l cwd_color (set_color purple --bold)
         set -l vcs_color (set_color brpurple)
         set -l prompt_status ""
 
@@ -12,6 +12,11 @@ function fish_prompt --description 'Write out the prompt'
 
         set -g __fish_git_prompt_showdirtystate 1
         set -g __fish_git_prompt_showstashstate 1
+        set -g __fish_git_prompt_showupstream auto
+        set -g __fish_git_prompt_showcolorhints 1
+        set -g __fish_git_prompt_char_stateseparator '|'
+        set -g __fish_git_prompt_char_upstream_ahead '↑'
+        set -g __fish_git_prompt_char_upstream_behind '↓'
 
         set -q fish_prompt_pwd_dir_length
         or set -lx fish_prompt_pwd_dir_length 0
@@ -33,6 +38,6 @@ function fish_prompt --description 'Write out the prompt'
 
         echo ''
         echo -s $prompt_login_color (prompt_login)
-        echo -s $cwd_color (prompt_pwd) $normal $vcs_color (fish_git_prompt) $normal ' ' $prompt_status
+        echo -s $cwd_color (prompt_pwd) $vcs_color (fish_git_prompt) $normal ' ' $prompt_status
         echo -n -s $status_color $suffix ' ' $normal
 end
