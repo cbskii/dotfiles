@@ -10,6 +10,7 @@ vim.opt.textwidth = 97                           -- Auto format text to wrap at 
 vim.opt.diffopt:append("vertical")               -- Vertical splits for diffs
 vim.opt.clipboard:append("unnamedplus")          -- Use system clipboard
 vim.opt.number = true                            -- Line numbers always visible
+vim.o.cmdheight = 0                              -- Hide command line when not using
 
 -- Autocommand group for unusual file formats
 vim.api.nvim_create_augroup("c_inc_ft", { clear = true })

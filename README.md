@@ -8,19 +8,19 @@
 - Git
 - Curl
 - GNU Stow
-- Bash
-- Patched Powerline Fonts
-- Starship
+- Fish
 - Ripgrep
 - FZF
+- Wezterm
 - Neovim (0.11+)
 - Vim-Plug
 - clangd
 - ZLS
 
 ## MacOS Dependencies (macos)
-- Aerospace WM
-- SketchyBar
+- Remap keyboard mission control commands to move to left and right spaces with cmd+h and cmd+l
+- Aerospace WM (*optional*)
+- SketchyBar (*optional*)
 
 ## Color Themes
 - Catppuccin
