@@ -96,8 +96,6 @@ require("catppuccin").setup({
   no_underline = true, -- Force no underline
 })
 
--- vim.cmd.colorscheme("palenight")
--- vim.cmd.colorscheme("catppuccin")
 vim.cmd.colorscheme("tokyonight")
 
 -- Disable LSP semantic highlighting for now to avoid greyed out #ifdef blocks
