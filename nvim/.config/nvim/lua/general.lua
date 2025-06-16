@@ -52,10 +52,3 @@ require("hbac").setup({
   end,
   close_buffers_with_windows = false,
 })
-
--- Flatten settings
-require("flatten").setup({
-  window = {
-    open = "vsplit",
-  },
-})

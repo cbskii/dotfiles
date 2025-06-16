@@ -10,8 +10,8 @@
 - Fish
 - Ripgrep
 - FZF
+- Tmux & TPM
 - Wezterm
-- Neovim (0.11+)
-- Vim-Plug
-- clangd
+- Neovim (0.11+) & Vim-Plug
+- Clangd
 - ZLS

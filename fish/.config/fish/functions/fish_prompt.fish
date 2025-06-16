@@ -38,6 +38,20 @@ function fish_prompt --description 'Write out the prompt'
 
         echo ''
         echo -s $prompt_login_color (prompt_login)
+        switch $fish_bind_mode
+                case default
+                    set_color --bold red
+                    echo -n '[N] '
+                case insert
+                    set_color --bold green
+                    echo -n '[I] '
+                case visual
+                    set_color --bold magenta
+                    echo -n '[V] '
+                case '*'
+                    set_color --bold yellow
+                    echo -n '[?] '
+            end
         echo -s $cwd_color (prompt_pwd) $vcs_color (fish_git_prompt) $normal ' ' $prompt_status
         echo -n -s $status_color $suffix ' ' $normal
 end

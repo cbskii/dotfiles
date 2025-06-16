@@ -4,9 +4,10 @@ local act = wezterm.action
 
 -- Main appearance
 config.font_size = 16
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font 'JetBrains Mono NL'
 config.color_scheme = 'Tokyo Night Moon'
 config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
   left = 0,
   right = 0,

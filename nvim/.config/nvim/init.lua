@@ -23,9 +23,6 @@ vim.cmd([[
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
   Plug 'folke/tokyonight.nvim'
 
-  " OSC52 support for copying text remotely
-  Plug 'ojroques/nvim-osc52'
-
   " Syntax highlighting, folding, etc.
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -44,14 +41,11 @@ vim.cmd([[
   " Autoclose unused buffers
   Plug 'axkirillov/hbac.nvim'
 
-  " Sidebar
-  Plug 'sidebar-nvim/sidebar.nvim'
-
-  " Open files in neovim terminal
-  Plug 'willothy/flatten.nvim'
-
   " Escape remaped to 'jk' without delay
   Plug 'max397574/better-escape.nvim'
+
+  " Tmux and nvim integration
+  Plug 'christoomey/vim-tmux-navigator'
 
   call plug#end()
 ]])

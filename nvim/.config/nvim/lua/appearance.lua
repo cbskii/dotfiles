@@ -27,7 +27,7 @@ vim.diagnostic.config({
   },
 })
 
--- Show diagnostic float automatically when hovering cursor over line.
+-- Show diagnostic float automatically when moving cursor over line.
 -- Based on updatetime in ms.
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
@@ -45,7 +45,7 @@ require('lualine').setup {
     theme = 'auto',
     component_separators = '|',
     section_separators = { left = '', right = '' },
-    disabled_filetypes = {'SidebarNvim'},
+    disabled_filetypes = {},
   },
   sections = {
     lualine_a = { { 'mode', separator = { left = '', right = '' }, right_padding = 2 } },
@@ -64,30 +64,6 @@ require('lualine').setup {
     lualine_z = {}
   },
 }
-
--- Sidebar config
-local cwd = {
-  title = "Working Directory",
-  icon = "",
-  draw = function()
-    return vim.fn.getcwd()
-  end,
-}
-
-require("sidebar-nvim").setup({
-  buffers = {
-    icon = "",
-    ignored_buffers = {},
-    sorting = "id",
-    show_numbers = true,
-    ignore_not_loaded = false,
-    ignore_terminal = true,
-  },
-  open = true,
-  sections = {cwd, 'buffers', 'git'},
-  update_interval = 100,
-  hide_statusline = false,
-})
 
 -- Theme settings
 require("catppuccin").setup({
