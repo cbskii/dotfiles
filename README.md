@@ -3,7 +3,8 @@
 2. Clone this repo to home directory. Make sure `~/.config` directory exists.
 3. Install dotfiles for a specific application using stow (e.g. `stow nvim`).
 4. Install nvim plugins with `:PlugInstall` nvim command.
-5. Uninstall dotfiles using stow in this directory (e.g. `stow -D nvim`).
+5. Install tmux plugins with `<prefix>I`.
+6. Uninstall dotfiles using stow in this directory (e.g. `stow -D nvim`).
 
 ### Dependencies
 - GNU Stow
