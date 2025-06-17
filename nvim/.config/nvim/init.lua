@@ -44,9 +44,6 @@ vim.cmd([[
   " Escape remaped to 'jk' without delay
   Plug 'max397574/better-escape.nvim'
 
-  " Tmux and nvim integration
-  Plug 'christoomey/vim-tmux-navigator'
-
   call plug#end()
 ]])
 
