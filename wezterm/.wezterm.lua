@@ -9,8 +9,8 @@ config.color_scheme = 'Tokyo Night Moon'
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
-  left = 0,
-  right = 0,
+  left = 2,
+  right = 2,
   top = 20,
   bottom = 0,
 }
@@ -30,6 +30,12 @@ config.keys = {
     },
   },
 }
+
+-- Windows specific settings
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  config.font_size = 12
+  config.default_prog = { "pwsh.exe", "-NoLogo" }
+end
 
 return config
 

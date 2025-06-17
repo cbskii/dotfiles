@@ -1,9 +1,9 @@
 function fish_prompt --description 'Write out the prompt'
+        set -l main_color yellow
         set -l last_status $status
         set -l normal (set_color normal)
-        set -l status_color (set_color cyan)
-        set -l cwd_color (set_color purple --bold)
-        set -l vcs_color (set_color brpurple)
+        set -l status_color (set_color $main_color)
+        set -l cwd_color (set_color $main_color --bold)
         set -l prompt_status ""
 
         set -l prompt_login_color (set_color grey --italics)
@@ -17,6 +17,8 @@ function fish_prompt --description 'Write out the prompt'
         set -g __fish_git_prompt_char_stateseparator '|'
         set -g __fish_git_prompt_char_upstream_ahead '↑'
         set -g __fish_git_prompt_char_upstream_behind '↓'
+        set -g __fish_git_prompt_color $main_color
+        set -g __fish_git_prompt_color_branch $main_color
 
         set -q fish_prompt_pwd_dir_length
         or set -lx fish_prompt_pwd_dir_length 0
@@ -37,10 +39,12 @@ function fish_prompt --description 'Write out the prompt'
         end
 
         echo ''
-        echo -s $prompt_login_color (prompt_login)
+        echo -s $prompt_login_color "$USER" \
+                $prompt_login_color "@" \
+                $prompt_login_color (prompt_hostname)
         switch $fish_bind_mode
                 case default
-                    set_color --bold red
+                    set_color --bold blue
                     echo -n '[N] '
                 case insert
                     set_color --bold green
@@ -52,6 +56,8 @@ function fish_prompt --description 'Write out the prompt'
                     set_color --bold yellow
                     echo -n '[?] '
             end
-        echo -s $cwd_color (prompt_pwd) $vcs_color (fish_git_prompt) $normal ' ' $prompt_status
+        echo -s $cwd_color (prompt_pwd) \
+                $normal (fish_git_prompt) \
+                $normal ' ' $prompt_status
         echo -n -s $status_color $suffix ' ' $normal
 end
