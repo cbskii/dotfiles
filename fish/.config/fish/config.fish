@@ -15,7 +15,5 @@ bind --mode insert --sets-mode default jk repaint
 set fish_cursor_default block
 set fish_cursor_insert block
 
-# Add params to built in fish ls function
-function ls
-    command ls -AG $argv
-end
+# Show more output with ls
+alias ls="(ls) -A"

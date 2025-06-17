@@ -41,7 +41,8 @@ function fish_prompt --description 'Write out the prompt'
         echo ''
         echo -s $prompt_login_color "$USER" \
                 $prompt_login_color "@" \
-                $prompt_login_color (prompt_hostname)
+                $prompt_login_color (prompt_hostname) \
+                $normal
         switch $fish_bind_mode
                 case default
                     set_color --bold blue
