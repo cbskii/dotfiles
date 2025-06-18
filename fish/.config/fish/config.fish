@@ -16,4 +16,10 @@ set fish_cursor_default block
 set fish_cursor_insert block
 
 # Show more output with ls
-alias ls="(ls) -A"
+function ls
+    command ls -A --color $argv
+end
+
+# Set FZF to include hidden directories, but ignore .git*.
+# Also works with neovim fzf plugin.
+set -gx FZF_DEFAULT_COMMAND 'find . -name ".git*" -prune -o -print'
